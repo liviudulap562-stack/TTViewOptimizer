@@ -1,0 +1,22 @@
+name: TikTok View Bombardment
+on: 
+  schedule:
+    - cron: '*/3 * * * *'  # Runs every 3 minutes
+  workflow_dispatch:
+
+jobs:
+  assault:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install requests beautifulsoup4
+    - name: EXECUTE MAIN ASSAULT
+      run: python tiktok_bot.py
+    - name: RUN NUKE OPTION
+      run: python nuke_bot.py
